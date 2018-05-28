@@ -1,14 +1,11 @@
-CREATE DATABASE IF NOT EXISTS RUMBA; 
-USE RUMBA;
-
 CREATE TABLE IF NOT EXISTS USUARIO (
-  ID_Usuario int AUTO_INCREMENT,
+  ID_Usuario serial,
   nombre varchar(50) DEFAULT NULL,
   PRIMARY KEY (ID_Usuario)
 ) ;
 
 CREATE TABLE IF NOT EXISTS AMIGO (
-  ID_Amigo int AUTO_INCREMENT,
+  ID_Amigo serial,
   AmigoFk1 int ,
   AmigoFk2 int ,
   PRIMARY KEY (ID_Amigo),
@@ -18,7 +15,7 @@ CREATE TABLE IF NOT EXISTS AMIGO (
 );
 
 CREATE TABLE IF NOT EXISTS PARCHE (
-  ID_Parche int AUTO_INCREMENT,
+  ID_Parche serial,
   clave varchar(50) DEFAULT NULL,
   nombre varchar(50) DEFAULT NULL,
   descripcion text DEFAULT NULL,
@@ -29,7 +26,7 @@ CREATE TABLE IF NOT EXISTS PARCHE (
 ) ;
 
 CREATE TABLE IF NOT EXISTS GRUPO (
-  ID_Grupo int AUTO_INCREMENT,
+  ID_Grupo serial,
   UsuarioFk int ,
   ParcheFk int ,
   PRIMARY KEY (ID_Grupo),
@@ -39,7 +36,7 @@ CREATE TABLE IF NOT EXISTS GRUPO (
 );
 
 CREATE TABLE IF NOT EXISTS BILLETERA (
-  ID_Billetera int AUTO_INCREMENT,
+  ID_Billetera serialT,
   monto Double ,
   UsuarioFk int ,
   PRIMARY KEY (ID_Billetera),
@@ -48,7 +45,7 @@ CREATE TABLE IF NOT EXISTS BILLETERA (
 );
 
 CREATE TABLE IF NOT EXISTS TRANSFERENCIA (
-  ID_Transferencia int AUTO_INCREMENT,
+  ID_Transferencia serial,
   monto Double,
   billeteraOFK int ,
   billeteraDFK int ,
@@ -87,7 +84,7 @@ INSERT INTO billetera (monto, UsuarioFk) VALUES ('90', '2');
 INSERT INTO billetera (monto, UsuarioFk) VALUES ('80', '3');
 INSERT INTO billetera (monto, UsuarioFk) VALUES ('70', '4');
 
-INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', Retiro', '1', '1');
-INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', 'Retiro', '2', '1');
-INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', 'Retiro', '3', '1');
-INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', 'Retiro', '4', '1');
+INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', '1', '1');
+INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', '2', '1');
+INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', '3', '1');
+INSERT INTO transferencia (monto, billeteraOFK, parcheDFk) VALUES ('50', '4', '1');
