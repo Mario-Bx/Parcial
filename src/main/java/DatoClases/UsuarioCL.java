@@ -89,5 +89,10 @@ public class UsuarioCL implements Serializable {
     public void setList_Billetera(List<BilleteraCL> list_Billetera) {
         this.list_Billetera = list_Billetera;
     }
+    
+    public void addBilletera(BilleteraCL bill) {
+        bill.setUsuarioFk(this);
+        this.list_Billetera.add(bill);
+    }
 
 }

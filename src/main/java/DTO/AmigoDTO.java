@@ -54,5 +54,6 @@ public class AmigoDTO {
     public void setAmigoFk2(UsuarioDTO AmigoFk2) {
         this.AmigoFk2 = AmigoFk2;
     }
+    
 
 }
