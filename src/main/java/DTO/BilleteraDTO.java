@@ -32,7 +32,9 @@ public class BilleteraDTO {
     public BilleteraDTO(BilleteraCL objCL) {
         this.ID_Billetera = objCL.getID_Billetera();
         this.monto = objCL.getMonto();
-        this.UsuarioFk = new UsuarioDTO(objCL.getUsuarioFk());
+        if (objCL.getUsuarioFk() != null ){
+            this.UsuarioFk = new UsuarioDTO(objCL.getUsuarioFk());
+        }
     }
 
     public int getID_Billetera() {
