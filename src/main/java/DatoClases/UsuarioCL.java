@@ -31,7 +31,6 @@ public class UsuarioCL implements Serializable {
     private String nombre;
 
     public UsuarioCL() {
-        this.list_Amisgos = new ArrayList<AmigoCL>();
     }
 
     public UsuarioCL(String nombre) {
