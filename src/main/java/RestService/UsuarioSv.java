@@ -54,6 +54,17 @@ public class UsuarioSv {
         dto = new UsuarioDTO(objetoCLS);
         return dto;
     }
+    ////Cargar lista de Id
+    @GET
+    @Path("/listas/{ID}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public UsuarioDTO listasId(@PathParam("ID") String id) throws ConexionException {
+        objetoFH = new UsuarioFh();
+        UsuarioCL objetoCLS = objetoFH.busacarObj(Integer.parseInt(id));
+        dto = new UsuarioDTO(objetoCLS);
+        dto.List_Amigos(objetoCLS.getList_Amisgos());
+        return dto;
+    }
 
     /////Crear Objeto
     @POST
