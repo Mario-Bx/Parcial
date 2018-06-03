@@ -74,8 +74,11 @@ public class BilleteraSv {
         objetoFH2 = new UsuarioFh();
         UsuarioCL objetoCLS2 = new UsuarioCL();
         objetoCLS2.setNombre(objetoDto.getUsuarioFk().getNombre());
+        
         objetoCLS.setUsuarioFk(objetoCLS2);
-
+        System.out.println("###################");
+        System.out.println(objetoCLS);
+        System.out.println("###################");
         objetoFH.crearObj(objetoCLS);
         return dto;
     }
