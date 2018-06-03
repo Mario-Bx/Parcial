@@ -59,7 +59,7 @@ public class BilleteraCL implements Serializable {
         return "BilleteraCL{" + "ID_Billetera=" + ID_Billetera + ", monto=" + monto + ", UsuarioFk=" + UsuarioFk + '}';
     }
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "UsuarioFk")
     private UsuarioCL UsuarioFk;
 
