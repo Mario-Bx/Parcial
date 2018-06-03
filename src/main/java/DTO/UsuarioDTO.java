@@ -9,6 +9,7 @@ import DatoClases.AmigoCL;
 import DatoClases.BilleteraCL;
 import DatoClases.GrupoCL;
 import DatoClases.UsuarioCL;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -34,6 +35,7 @@ public class UsuarioDTO {
     public UsuarioDTO(UsuarioCL objetoCL) {
         this.ID_Usuario = objetoCL.getID_Usuario();
         this.nombre = objetoCL.getNombre();
+        this.list_Amisgos = new ArrayList<AmigoDTO>();
     }
 
     public int getID_Usuario() {
