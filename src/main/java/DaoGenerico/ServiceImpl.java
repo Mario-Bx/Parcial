@@ -21,6 +21,27 @@ public class ServiceImpl<T> implements Service<T> {
     protected Class type;
     protected String entity;
 
+    public ServiceImpl(Class<T> entityClass) {
+        this.type = entityClass;
+    }
+
+    public T busacarObj(Object id) {
+        return (T) entityManager.find(type, id);
+    }
+
+    public void eliminarObje(T object) {
+        entityManager.remove(object);
+        entityManager.getTransaction().commit();
+    }
+
+    public List<T> buscarTodoObj() {
+        Query query
+                = entityManager.createQuery("select x from "
+                        + getEntityName() + " x");
+
+        return (List<T>) query.getResultList();
+    }
+
     public void crearObj(T object) {
         if (!entityManager.getTransaction().isActive()) {
             entityManager.getTransaction().begin();
@@ -28,23 +49,6 @@ public class ServiceImpl<T> implements Service<T> {
         entityManager.persist(object);
         try {
             entityManager.flush();
-            entityManager.clear();
-
-        } catch (PersistenceException exception) {
-            throw new RuntimeException(exception);
-        }
-        entityManager.getTransaction().commit();
-    }
-
-    public void eliminarObje(T object) {
-        if (!entityManager.getTransaction().isActive()) {
-            entityManager.getTransaction().begin();
-        }
-        entityManager.remove(object);
-
-        try {
-            entityManager.flush();
-            entityManager.clear();
 
         } catch (PersistenceException exception) {
             throw new RuntimeException(exception);
@@ -72,25 +76,7 @@ public class ServiceImpl<T> implements Service<T> {
         return t;
     }
 
-    public List<T> buscarTodoObj() {
-
-        Query query
-                = entityManager.createQuery("select x from "
-                        + getEntityName() + " x ");
-        query.setHint("javax.persistence.cache.storeMode", "REFRESH");
-        query.setHint("eclipselink.refresh", "true");
-        return (List<T>) query.getResultList();
-    }
-
-/////
-    public ServiceImpl(Class<T> entityClass) {
-        this.type = entityClass;
-    }
-
-    public T busacarObj(Object id) {
-        return (T) entityManager.find(type, id);
-    }
-
+    ////////////
     /// Crea una consulta especifica
     public List<T> findByProperty(String prop, Object val) {
         Query query
@@ -122,7 +108,6 @@ public class ServiceImpl<T> implements Service<T> {
                 entity = type.getSimpleName();
             }
         }
-
         return entity;
     }
 
