@@ -52,6 +52,7 @@ public class UsuarioSv {
         objetoFH = new UsuarioFh();
         UsuarioCL objetoCLS = objetoFH.busacarObj(Integer.parseInt(id));
         dto = new UsuarioDTO(objetoCLS);
+        dto.List_Amigos(objetoCLS.getList_Amisgos());
         return dto;
     }
     ////Cargar lista de Id
