@@ -7,6 +7,7 @@ package DTO;
 
 import DatoClases.BilleteraCL;
 import DatoClases.TransferenciaCL;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,9 +33,12 @@ public class BilleteraDTO {
     public BilleteraDTO(BilleteraCL objCL) {
         this.ID_Billetera = objCL.getID_Billetera();
         this.monto = objCL.getMonto();
-        if (objCL.getUsuarioFk() != null ){
+        if (objCL.getUsuarioFk() != null) {
             this.UsuarioFk = new UsuarioDTO(objCL.getUsuarioFk());
         }
+        this.list_BilleteraDestino = new ArrayList<TransferenciaDTO>();
+        this.list_BilleteraOrigen = new ArrayList<TransferenciaDTO>();
+
     }
 
     public int getID_Billetera() {

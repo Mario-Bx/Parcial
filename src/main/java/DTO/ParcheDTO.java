@@ -8,6 +8,7 @@ package DTO;
 import DatoClases.GrupoCL;
 import DatoClases.ParcheCL;
 import DatoClases.TransferenciaCL;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -43,6 +44,9 @@ public class ParcheDTO {
         this.valorObjetivo = objCL.getValorObjetivo();
         this.monto = objCL.getMonto();
         this.estado = objCL.isEstado();
+        this.list_Grupos = new ArrayList<GrupoDTO>();
+        this.list_TransferenciaDestino = new ArrayList<TransferenciaDTO>();
+        this.list_TransferenciaOrigen = new ArrayList<TransferenciaDTO>();
     }
 
     public int getID_Parche() {

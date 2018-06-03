@@ -6,6 +6,7 @@
 package DatoClases;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,6 +37,8 @@ public class BilleteraCL implements Serializable {
 
     public BilleteraCL(Double monto) {
         this.monto = monto;
+        this.list_BilleteraDestino = new ArrayList<TransferenciaCL>();
+        this.list_BilleteraOrigen = new ArrayList<TransferenciaCL>();
     }
 
     public int getID_Billetera() {

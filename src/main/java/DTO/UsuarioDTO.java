@@ -36,6 +36,8 @@ public class UsuarioDTO {
         this.ID_Usuario = objetoCL.getID_Usuario();
         this.nombre = objetoCL.getNombre();
         this.list_Amisgos = new ArrayList<AmigoDTO>();
+        this.list_Billetera = new ArrayList<BilleteraDTO>();
+        this.list_Grupos = new ArrayList<GrupoDTO>();
     }
 
     public int getID_Usuario() {

@@ -62,8 +62,6 @@ public class UsuarioSv {
         objetoFH = new UsuarioFh();
         UsuarioCL objetoCLS = objetoFH.busacarObj(Integer.parseInt(id));
         dto = new UsuarioDTO(objetoCLS);
-        System.out.println("#####################################");
-        System.out.println("#####################################");
         if (objetoCLS.getList_Amisgos()!=null) {
             dto.List_Amigos(objetoCLS.getList_Amisgos());
         }

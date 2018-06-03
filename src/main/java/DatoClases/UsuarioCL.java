@@ -36,6 +36,8 @@ public class UsuarioCL implements Serializable {
     public UsuarioCL(String nombre) {
         this.nombre = nombre;
         this.list_Amisgos = new ArrayList<AmigoCL>();
+        this.list_Billetera = new ArrayList<BilleteraCL>();
+        this.list_Grupos = new ArrayList<GrupoCL>();
     }
 
     public int getID_Usuario() {

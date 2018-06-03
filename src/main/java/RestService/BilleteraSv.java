@@ -72,7 +72,8 @@ public class BilleteraSv {
         objetoCLS.setMonto(objetoDto.getMonto());
 
         objetoFH2 = new UsuarioFh();
-        UsuarioCL objetoCLS2 = objetoFH2.busacarObj(objetoDto.getUsuarioFk().getID_Usuario());
+        UsuarioCL objetoCLS2 = new UsuarioCL();
+        objetoCLS2.setNombre(objetoDto.getUsuarioFk().getNombre());
         objetoCLS.setUsuarioFk(objetoCLS2);
 
         objetoFH.crearObj(objetoCLS);

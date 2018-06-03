@@ -5,7 +5,9 @@
  */
 package DatoClases;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -46,6 +48,9 @@ public class ParcheCL implements Serializable {
         this.valorObjetivo = valorObjetivo;
         this.monto = monto;
         this.estado = estado;
+        this.list_Grupos = new ArrayList<GrupoCL>();
+        this.list_TransferenciaDestino = new ArrayList<TransferenciaCL>();
+        this.list_TransferenciaOrigen = new VirtualFlow.ArrayLinkedList<TransferenciaCL>();
     }
 
     public int getID_Parche() {
